@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41032CF2-3DCB-4336-AB6F-7FA975C19F60}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Kan_Bankası</RootNamespace>
+    <AssemblyName>Kan Bankası</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.1.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
+    <Reference Include="Bunifu.UI.WinForms.1.5.3">
+      <HintPath>..\..\BunifuCrack-main\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\..\BunifuCrack-main\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
+      <HintPath>..\..\BunifuCrack-main\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>..\..\BunifuCrack-main\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>..\..\BunifuCrack-main\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
+    <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Base, Version=23.1.77.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.23.1.77\lib\EO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebBrowser, Version=23.1.77.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.23.1.77\lib\EO.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebBrowser.WinForm, Version=23.1.77.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.WinForm.23.1.77\lib\EO.WebBrowser.WinForm.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.WebEngine, Version=23.1.77.0, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <HintPath>..\packages\EO.WebBrowser.23.1.77\lib\EO.WebEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.7.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.7.0.0\lib\net462\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bizkimiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bizkimiz.Designer.cs">
+      <DependentUpon>bizkimiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\DonoriletisimBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\DonoriletisimBilgileri.Designer.cs">
+      <DependentUpon>DonoriletisimBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\AdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\AdminLogin.Designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\Anasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\Anasayfa.Designer.cs">
+      <DependentUpon>Anasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\enyakınmekanlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\enyakınmekanlar.Designer.cs">
+      <DependentUpon>enyakınmekanlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\HastailetisimBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\HastailetisimBilgileri.Designer.cs">
+      <DependentUpon>HastailetisimBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\Hastane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\Hastane.Designer.cs">
+      <DependentUpon>Hastane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\ikram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\ikram.Designer.cs">
+      <DependentUpon>ikram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\iletisim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\iletisim.Designer.cs">
+      <DependentUpon>iletisim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\Kullanıcı.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\Kullanıcı.Designer.cs">
+      <DependentUpon>Kullanıcı.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\DonorListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\DonorListesi.Designer.cs">
+      <DependentUpon>DonorListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\Donor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\Donor.designer.cs">
+      <DependentUpon>Donor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\Gecis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\Gecis.Designer.cs">
+      <DependentUpon>Gecis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\Hasta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\Hasta.Designer.cs">
+      <DependentUpon>Hasta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\HastaListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\HastaListesi.Designer.cs">
+      <DependentUpon>HastaListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\KanBagısı.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\KanBagısı.Designer.cs">
+      <DependentUpon>KanBagısı.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\KanStogu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\KanStogu.Designer.cs">
+      <DependentUpon>KanStogu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\KanTransferi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\KanTransferi.Designer.cs">
+      <DependentUpon>KanTransferi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\KontrolPaneli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\KontrolPaneli.Designer.cs">
+      <DependentUpon>KontrolPaneli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\LaboratuvardaTestEdilecekKanlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\LaboratuvardaTestEdilecekKanlar.Designer.cs">
+      <DependentUpon>LaboratuvardaTestEdilecekKanlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\LaboratuvardaTestiGecenKanlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\LaboratuvardaTestiGecenKanlar.Designer.cs">
+      <DependentUpon>LaboratuvardaTestiGecenKanlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\PersonelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\PersonelEkle.Designer.cs">
+      <DependentUpon>PersonelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\SilinenDonorler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\SilinenDonorler.Designer.cs">
+      <DependentUpon>SilinenDonorler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\SilinenHastalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\SilinenHastalar.Designer.cs">
+      <DependentUpon>SilinenHastalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kan Bagıs\imhaEdilenKanlarTbl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\imhaEdilenKanlarTbl.Designer.cs">
+      <DependentUpon>imhaEdilenKanlarTbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganAnasayfaObs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganAnasayfaObs.Designer.cs">
+      <DependentUpon>OrganAnasayfaObs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganDonorListesiObs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganDonorListesiObs.Designer.cs">
+      <DependentUpon>OrganDonorListesiObs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganDonorObs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganDonorObs.Designer.cs">
+      <DependentUpon>OrganDonorObs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganDonorİletisimBilgileriObs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganDonorİletisimBilgileriObs.Designer.cs">
+      <DependentUpon>OrganDonorİletisimBilgileriObs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganHastaListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganHastaListesi.Designer.cs">
+      <DependentUpon>OrganHastaListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganHastaObs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganHastaObs.Designer.cs">
+      <DependentUpon>OrganHastaObs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganHastaİletişimBilgileriObs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganHastaİletişimBilgileriObs.Designer.cs">
+      <DependentUpon>OrganHastaİletişimBilgileriObs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganLaboratuvaraGidecekOrganlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganLaboratuvaraGidecekOrganlar.Designer.cs">
+      <DependentUpon>OrganLaboratuvaraGidecekOrganlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganBagıs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganBagıs.Designer.cs">
+      <DependentUpon>OrganBagıs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganStok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganStok.Designer.cs">
+      <DependentUpon>OrganStok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganTransfer.Designer.cs">
+      <DependentUpon>OrganTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganSilinenDonorler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganSilinenDonorler.Designer.cs">
+      <DependentUpon>OrganSilinenDonorler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganSilinenHastalar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganSilinenHastalar.Designer.cs">
+      <DependentUpon>OrganSilinenHastalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganTestiGeçenOrganlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganTestiGeçenOrganlar.Designer.cs">
+      <DependentUpon>OrganTestiGeçenOrganlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganİmhaOrgan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganBagıs\OrganİmhaOrgan.Designer.cs">
+      <DependentUpon>OrganİmhaOrgan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Kan Bagıs\saglık.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kan Bagıs\saglık.Designer.cs">
+      <DependentUpon>saglık.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="bizkimiz.resx">
+      <DependentUpon>bizkimiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\Anasayfa.resx">
+      <DependentUpon>Anasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\DonoriletisimBilgileri.resx">
+      <DependentUpon>DonoriletisimBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\enyakınmekanlar.resx">
+      <DependentUpon>enyakınmekanlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\HastailetisimBilgileri.resx">
+      <DependentUpon>HastailetisimBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\Hastane.resx">
+      <DependentUpon>Hastane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\ikram.resx">
+      <DependentUpon>ikram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\iletisim.resx">
+      <DependentUpon>iletisim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\Kullanıcı.resx">
+      <DependentUpon>Kullanıcı.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\DonorListesi.resx">
+      <DependentUpon>DonorListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\Donor.resx">
+      <DependentUpon>Donor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\Gecis.resx">
+      <DependentUpon>Gecis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\Hasta.resx">
+      <DependentUpon>Hasta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\HastaListesi.resx">
+      <DependentUpon>HastaListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\KanBagısı.resx">
+      <DependentUpon>KanBagısı.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\KanStogu.resx">
+      <DependentUpon>KanStogu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\KanTransferi.resx">
+      <DependentUpon>KanTransferi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\KontrolPaneli.resx">
+      <DependentUpon>KontrolPaneli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\LaboratuvardaTestEdilecekKanlar.resx">
+      <DependentUpon>LaboratuvardaTestEdilecekKanlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\LaboratuvardaTestiGecenKanlar.resx">
+      <DependentUpon>LaboratuvardaTestiGecenKanlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\PersonelEkle.resx">
+      <DependentUpon>PersonelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\SilinenDonorler.resx">
+      <DependentUpon>SilinenDonorler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\SilinenHastalar.resx">
+      <DependentUpon>SilinenHastalar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kan Bagıs\imhaEdilenKanlarTbl.resx">
+      <DependentUpon>imhaEdilenKanlarTbl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganAnasayfaObs.resx">
+      <DependentUpon>OrganAnasayfaObs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganDonorListesiObs.resx">
+      <DependentUpon>OrganDonorListesiObs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganDonorObs.resx">
+      <DependentUpon>OrganDonorObs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganDonorİletisimBilgileriObs.resx">
+      <DependentUpon>OrganDonorİletisimBilgileriObs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganHastaListesi.resx">
+      <DependentUpon>OrganHastaListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganHastaObs.resx">
+      <DependentUpon>OrganHastaObs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganHastaİletişimBilgileriObs.resx">
+      <DependentUpon>OrganHastaİletişimBilgileriObs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganLaboratuvaraGidecekOrganlar.resx">
+      <DependentUpon>OrganLaboratuvaraGidecekOrganlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganBagıs.resx">
+      <DependentUpon>OrganBagıs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganStok.resx">
+      <DependentUpon>OrganStok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganTransfer.resx">
+      <DependentUpon>OrganTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganSilinenDonorler.resx">
+      <DependentUpon>OrganSilinenDonorler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganSilinenHastalar.resx">
+      <DependentUpon>OrganSilinenHastalar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganTestiGeçenOrganlar.resx">
+      <DependentUpon>OrganTestiGeçenOrganlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrganBagıs\OrganİmhaOrgan.resx">
+      <DependentUpon>OrganİmhaOrgan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Kan Bagıs\saglık.resx">
+      <DependentUpon>saglık.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
